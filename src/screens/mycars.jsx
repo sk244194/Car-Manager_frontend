@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import './cars.css'; 
+import './cars.css';
 
 export function MyCars() {
   const [cars, setCars] = useState([]);
@@ -11,7 +11,7 @@ export function MyCars() {
       const response = await axios.get('http://localhost:5000/api/mycars', {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setCars(response.data); 
+      setCars(response.data);
     };
     fetchMyCars();
   }, []);
@@ -35,7 +35,7 @@ export function MyCars() {
       <div className="cars-list">
         {cars.map((car) => (
           <div key={car._id} className="car-card">
-            <img src={`http://localhost:5000/${car.image}`} alt="Car" />
+            <img src={car.image.startsWith('http') ? car.image : `http://localhost:5000/${car.image}`} alt="Car" />
             <p>Contact: {car.contact}</p>
             <p>Description: {car.description}</p>
             <button onClick={() => handleDelete(car._id)}>Delete</button>
