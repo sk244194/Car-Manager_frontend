@@ -28,7 +28,7 @@ export function ImageUpload() {
 
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/auth/imageUpload',
+        'https://car-manager-backend-3gp0.onrender.com/api/auth/imageUpload',
         formdata,
         { headers: { Authorization: `Bearer ${token}` } }
       );
