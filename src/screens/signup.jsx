@@ -14,7 +14,7 @@ function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('https://car-manager-backend-3gp0.onrender.com/api/auth/signup', data);
+            const res = await axios.post('http://car-manager-backend-3gp0.onrender.com/api/auth/signup', data);
             alert(res.data);
         } catch (error) {
             alert(error.response?.data?.error || 'Signup failed');
